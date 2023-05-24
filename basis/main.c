@@ -1,5 +1,9 @@
 /*
+<<<<<<< Updated upstream
 haiiiiiiii
+=======
+daan is brokko
+>>>>>>> Stashed changes
  */
 #include <avr/io.h>
 
