@@ -1,7 +1,6 @@
 /*
-ik wil pik
+haiiiiiiii
  */
-
 #include <avr/io.h>
 
 int main(void)
