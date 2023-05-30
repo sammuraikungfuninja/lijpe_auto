@@ -5,11 +5,14 @@
 1684931002 source:c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\fuse.c
 	<avr/io.h>
 
-1685096057 source:c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\main.c
+1685453616 source:c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\main.c
 	<avr/io.h>
 	"h_bridge.h"
 	"h_bridge.c"
+	"servo.h"
+	"servo.c"
 	<avr/interrupt.h>
+	<util/delay.h>
 
 1684935352 c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\h_bridge.h
 
@@ -18,10 +21,10 @@
 	<avr/interrupt.h>
 	"h_bridge.h"
 
-1685091329 c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\servo.c
+1685451215 c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\servo.c
 	<avr/io.h>
 	<avr/interrupt.h>
 	"servo.h"
 
-1685091318 c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\servo.h
+1685450998 c:\users\kayas\onedrive - de haagse hogeschool\documenten\lijpe_auto\basis\servo.h
 

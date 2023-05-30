@@ -8,18 +8,10 @@ daan is brokko
 #include <avr/io.h>
 #include "h_bridge.h"
 #include "h_bridge.c"
+#include "servo.h"
+#include "servo.c"
 #include <avr/interrupt.h>
-
-#define RESETSERVO 25536ul
-ISR(TIMER1_OVF_vect)
-{
-    PORTH |= (1<<PH5);
-}
-
-ISR(TIMER1_COMPA_vect)
-{
-    PORTH &= ~(1<<PH5);
-}
+#include <util/delay.h>
 
 void vroem()
 {
@@ -33,7 +25,10 @@ void plantsensoraan()
 
 void rem()
 {
+    h_bridge_set_percentage(-10);
+    _delay_ms(10);
     h_bridge_set_percentage(0);
+
 }
 
 void alarm()
@@ -43,32 +38,28 @@ void alarm()
 
 void stuurlinks()
 {
-    //servo
+    servo1_set_percentage(-100);
+    _delay_ms(200);
+    stuurrechts();
+
 }
 
 void stuurrechts()
 {
-    //servo
+   servo1_set_percentage(100);
+   _delay_ms(200);
+   stuurlinks();
 }
 
 void stuurvooruit()
 {
-    TCNT1 = RESETSERVO;
-    OCR1A = RESETSERVO + 4000ul;
-    TIMSK1 |= ((1 << OCIE1A)|(1 << TOIE1));
-
+    //
 }
 
-int state = 1;
+int state = 5;
 int main(void)
 {
-    init_h_bridge();
-    TCCR1A = 0;
-    TCCR1B |= (1 << CS11);
-    sei();
-    DDRH |= (1<<PH5);
-    PORTH &= ~(1<<PH5);
-
+  init_servo();
     while(1)
     {
         //sensoren checken
