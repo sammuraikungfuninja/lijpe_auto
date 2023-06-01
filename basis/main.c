@@ -12,7 +12,14 @@ daan is brokko
 #include "servo.c"
 #include <avr/interrupt.h>
 #include <util/delay.h>
-
+int state;
+void init()
+{
+    DDRB &= ~(1<<PB0); //irsensor1
+    PORTB |= (1<<PB0);
+    DDRB &= ~(1<<PB2); //irsensor2
+    PORTB |= (1<<PB2);
+}
 void vroem()
 {
     h_bridge_set_percentage(50);
@@ -25,10 +32,7 @@ void plantsensoraan()
 
 void rem()
 {
-    h_bridge_set_percentage(-10);
-    _delay_ms(10);
     h_bridge_set_percentage(0);
-
 }
 
 void alarm()
@@ -38,32 +42,45 @@ void alarm()
 
 void stuurlinks()
 {
-    servo1_set_percentage(-100);
-    _delay_ms(200);
-    stuurrechts();
-
+        servo1_set_percentage(-50);
 }
 
 void stuurrechts()
 {
-   servo1_set_percentage(100);
-   _delay_ms(200);
-   stuurlinks();
+   servo1_set_percentage(50);
 }
 
 void stuurvooruit()
 {
-    //
+    servo1_set_percentage(0);
 }
 
-int state = 5;
+
 int main(void)
 {
+init_h_bridge();
   init_servo();
+  init();
     while(1)
+
     {
         //sensoren checken
-
+        if (PINB & ((1<<PB0) & (1<<PB2)))
+        {
+        state = 1;
+        }
+        if ((PINB & (1<<PB0))==0)
+        {
+            state = 5;
+        }
+        if ((PINB & (1<<PB2))==0)
+        {
+            state = 4;
+        }
+     /*   if ((PINB & (1<<PB0) | (1<<PB1))==0)
+        {
+            state
+        }*/
         switch(state)
         {
         case(0):
