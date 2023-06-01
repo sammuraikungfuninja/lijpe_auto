@@ -15,13 +15,13 @@
 
 // The settings below are for the Mega, modify
 // in case you want to use other pins
-#define PORT_RPWM	PORTH
-#define PIN_RPWM	PH6
-#define DDR_RPWM	DDRH
+#define PORT_RPWM	PORTB
+#define PIN_RPWM	PB6
+#define DDR_RPWM	DDRB
 
-#define PORT_LPWM	PORTF
-#define PIN_LPWM	PF5
-#define DDR_LPWM	DDRF
+#define PORT_LPWM	PORTB
+#define PIN_LPWM	PB7
+#define DDR_LPWM	DDRB
 
 void init_h_bridge(void);
 void h_bridge_set_percentage(signed char percentage);
