@@ -5,6 +5,9 @@ haiiiiiiii
 daan is brokko
 >>>>>>> Stashed changes
  */
+ #ifndef F_CPU
+#define F_CPU 16000000ul
+ #endif
 #include <avr/io.h>
 #include "h_bridge.h"
 #include "h_bridge.c"
@@ -15,14 +18,16 @@ daan is brokko
 int state;
 void init()
 {
-    DDRB &= ~(1<<PB0); //irsensor1
-    PORTB |= (1<<PB0);
-    DDRB &= ~(1<<PB2); //irsensor2
-    PORTB |= (1<<PB2);
+    DDRF &= ~(1<<PF0); //A0, ir links voor
+    PORTF |= (1<<PF0);
+    DDRF &= ~(1<<PF1); //A1, ir rechts voor
+    PORTF |= (1<<PF1);
 }
 void vroem()
 {
-    h_bridge_set_percentage(50);
+    h_bridge_set_percentage(100);
+    _delay_ms(4000);
+    state = 2;
 }
 
 void plantsensoraan()
@@ -58,9 +63,9 @@ void stuurvooruit()
 
 int main(void)
 {
-init_h_bridge();
-  init_servo();
-  init();
+    init_h_bridge();    //d12,13
+    init_servo();       //d11
+    init();
     while(1)
 
     {
