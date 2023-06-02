@@ -16,24 +16,58 @@ daan is brokko
 #include <avr/interrupt.h>
 #include <util/delay.h>
 int state;
+int random1 = 0;        //ints bij buzzer
+int random2 = 0;
 void init()
 {
     DDRF &= ~(1<<PF0); //A0, ir links voor
     PORTF |= (1<<PF0);
     DDRF &= ~(1<<PF1); //A1, ir rechts voor
     PORTF |= (1<<PF1);
+    DDRF &= ~(1<<PF2); //A2, ir bomen rechts
+    PORTF |= (1<<PF2);
+    DDRF &= ~(1<<PF3);//A3, ir bomen links
+    PORTF |= (1<<PF3);
+    DDRF &= ~(1<<PF4);//A4, voren detecteren
+    PORTF |= (1<<PF4);
+    DDRB |= (1<<PB0);  //53, links leds
+    PORTB &= ~(1<<PB0);
+    DDRB |= (1<<PB1);   //52, leds rechts
+    PORTB &= ~(1<<PB1);
 }
+
 void vroem()
 {
-    h_bridge_set_percentage(100);
-    _delay_ms(4000);
-    state = 2;
+    h_bridge_set_percentage(50);
 }
 
 void plantsensoraan()
 {
-    //sensoren aan
+if(random1 == 0)
+{
+if ((PINF & (1<<PF2))==0)                    //bomen rechts, staan stil
+{
+state = 2;
+random1 = 300; //kan wisselen
 }
+}
+else
+{
+    random1--;
+}
+if (random2 == 0)
+{
+if ((PINF & (1<<PF3))==0)                    //bomen links, staan stil
+{
+state = 2;
+random2 = 300; //kan wisselen
+}
+}
+else
+{
+    random2--;
+}
+
 
 void rem()
 {
@@ -42,17 +76,29 @@ void rem()
 
 void alarm()
 {
-    //1 pinnetje aan en uit schakelen voor 2x
+        PORTB |= (1<<PB0);
+        _delay_ms(500);
+        PORTB &= ~(1<<PB0);
+        PORTB |= (1<<PB1);
+        _delay_ms(500);
+        PORTB |= (1<<PB0);
+        PORTB &= ~(1<<PB1);
+        _delay_ms(500);
+        PORTB &= ~(1<<PB0);
+        PORTB |= (1<<PB1);
+        _delay_ms(500);
+        PORTB &= ~(1<<PB0);
+        PORTB &= ~(1<<PB1);
 }
 
 void stuurlinks()
 {
-        servo1_set_percentage(-50);
+    servo1_set_percentage(-20);
 }
 
 void stuurrechts()
 {
-   servo1_set_percentage(50);
+   servo1_set_percentage(20);
 }
 
 void stuurvooruit()
@@ -60,6 +106,10 @@ void stuurvooruit()
     servo1_set_percentage(0);
 }
 
+void grotebocht()
+{
+
+}
 
 int main(void)
 {
@@ -70,22 +120,33 @@ int main(void)
 
     {
         //sensoren checken
-        if (PINB & ((1<<PB0) & (1<<PB2)))
+        if ((PINF & (1<<PF0))==0)       //beide zijkanten checken, rechtdoor
         {
-        state = 1;
+        if ((PINF & (1<<PF1))==0)
+        {
+            state = 1;
         }
-        if ((PINB & (1<<PB0))==0)
+        }
+        if (PINF & (1<<PF0))                   //links checken, rechts corigeren
         {
             state = 5;
         }
-        if ((PINB & (1<<PB2))==0)
+        if (PINF & (1<<PF1))                    //rechts checken, links corigeren
         {
             state = 4;
         }
-     /*   if ((PINB & (1<<PB0) | (1<<PB1))==0)
+        if (PINF & (1<<PF0))                          //beide sensoren niks, links afslaan
         {
-            state
-        }*/
+        if(PINF & (1<<PF1))
+        {
+            state = 3;
+        }
+        }
+
+        if (PINF & (1<<PF4)==0)                        //voren iets, staan stil
+        {
+            state = 0;
+        }
         switch(state)
         {
         case(0):
@@ -93,30 +154,30 @@ int main(void)
             break;
 
         case(1):
+            stuurvooruit();
             vroem();
             plantsensoraan();
-            stuurvooruit();
             //zij sensoren en sturen bijhouden
             break;
 
         case(2):
             rem();
             alarm();
-            //plant detect
-            //alarm
+            vroem();
             break;
 
         case(3):
-            //bocht
-            //plant sensoren uit
+            grotebocht();//bocht
             break;
 
         case(4):
             stuurlinks();
+            plantsensoraan();
             break;
 
         case(5):
             stuurrechts();
+            plantsensoraan();
             break;
         }
     }
