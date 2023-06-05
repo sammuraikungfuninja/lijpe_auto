@@ -30,6 +30,8 @@ void init()
     PORTF |= (1<<PF3);
     DDRF &= ~(1<<PF4);//A4, voren detecteren
     PORTF |= (1<<PF4);
+    DDRF &= ~(1<<PF5);//A5, eind van balk detectie
+    PORTF |= (1<<PF5);
     DDRB |= (1<<PB0);  //53, links leds
     PORTB &= ~(1<<PB0);
     DDRB |= (1<<PB1);   //52, leds rechts
@@ -66,6 +68,7 @@ random2 = 300; //kan wisselen
 else
 {
     random2--;
+}
 }
 
 
@@ -135,19 +138,18 @@ int main(void)
         {
             state = 4;
         }
-        if (PINF & (1<<PF0))                          //beide sensoren niks, links afslaan
+            if (PINF & (1<<PF5)==0)                 //balk checken, grote bocht
         {
-        if(PINF & (1<<PF1))
-        {
-            state = 3;
-        }
+        state = 3;
         }
 
         if (PINF & (1<<PF4)==0)                        //voren iets, staan stil
         {
             state = 0;
         }
+        state = 1;
         switch(state)
+
         {
         case(0):
             rem();
@@ -185,3 +187,4 @@ int main(void)
 
     return 0;
 }
+
