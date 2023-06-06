@@ -81,7 +81,7 @@ if(random1 <= 0)
 if ((PINF & (1<<PF2))==0)                    //bomen rechts, staan stil
 {
 state = 2;
-random1 = 300; //kan wisselen
+random1 = 6000; //kan wisselen
 }
 }
 else
@@ -155,7 +155,7 @@ int main(void)
     {
         //sensoren checken
 
-        state = 1;
+
         switch(state)
 
         {
