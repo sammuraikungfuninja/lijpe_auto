@@ -15,13 +15,14 @@ daan is brokko
 #include "servo.c"
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#define RESET 34534ul
 int state = 0;
-int random1 = 0;        //ints bij buzzer
-int random2 = 0;
+volatile int random1 = 1;        //ints bij buzzer
+volatile int random2 = 1;
 void init()
 {
-    DDRF &= ~(1<<PF0); //A0, ir links voor
-    PORTF |= (1<<PF0);
+    DDRF &= ~(1<<PF6); //A6, ir links voor
+    PORTF |= (1<<PF6);
     DDRF &= ~(1<<PF1); //A1, ir rechts voor
     PORTF |= (1<<PF1);
     DDRF &= ~(1<<PF2); //A2, ir bomen rechts
@@ -36,6 +37,14 @@ void init()
     PORTB &= ~(1<<PB0);
     DDRB |= (1<<PB1);   //52, leds rechts
     PORTB &= ~(1<<PB1);
+}
+
+ISR(TIMER3_OVF_vect)
+{
+    random1 = 1;
+    random2 = 1;
+    TCNT3 = RESET;
+    TCCR3B = 0;
 }
 
 void sensoren()
@@ -71,34 +80,27 @@ void veiligheidsensor()
 }
 void vroem()
 {
-    h_bridge_set_percentage(50);
+    h_bridge_set_percentage(30);
 }
 
 void plantsensoraan()
 {
-if(random1 <= 0)
+if(random1 == 1)
 {
 if ((PINF & (1<<PF2))==0)                    //bomen rechts, staan stil
 {
 state = 2;
-random1 = 6000; //kan wisselen
+random1 = 0;
 }
 }
-else
-{
-    random1--;
-}
-if (random2 <= 0)
+
+if (random2 == 1)
 {
 if ((PINF & (1<<PF3))==0)                    //bomen links, staan stil
 {
 state = 2;
-random2 = 300; //kan wisselen
+random2 = 0;
 }
-}
-else
-{
-    random2--;
 }
 }
 
@@ -123,6 +125,7 @@ void alarm()
         _delay_ms(500);
         PORTB &= ~(1<<PB0);
         PORTB &= ~(1<<PB1);
+        TCCR3B |= ((1<<CS32)|(0<<CS31)|(1<<CS30));
 }
 
 void stuurlinks()
@@ -147,6 +150,12 @@ void grotebocht()
 
 int main(void)
 {
+    TCCR3A = 0;
+    TCCR3B = 0;
+    TIMSK3 |= (1<<TOIE3);
+    TCNT3 = RESET;
+
+    sei();
     init_h_bridge();    //d12,13
     init_servo();       //d11
     init();
