@@ -33,7 +33,14 @@
 1684930078 source:c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\fuse.c
 	<avr/io.h>
 
-1685613433 source:c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\main.c
+1687178038 source:c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\main.c
+	<avr/io.h>
+	"h_bridge.h"
+	"h_bridge.c"
+	"servo.h"
+	"servo.c"
+	<avr/interrupt.h>
+	<util/delay.h>
 
 1686141421 source:c:\users\daanb\documents\codeblock\lijpe_auto\basis\main.c
 	<avr/io.h>
@@ -59,7 +66,7 @@
 	<avr/interrupt.h>
 	"servo.h"
 
-1684935355 c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\h_bridge.h
+1685693794 c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\h_bridge.h
 
 1684935355 c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\h_bridge.c
 
@@ -67,7 +74,7 @@
 
 1664968665 c:\users\daanb\documents\codeblock\lijpe_auto\basis\h_bridge.c
 
-1685454482 c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\servo.h
+1685693794 c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\servo.h
 
 1685454482 c:\users\ilmar\desktop\codeblocks\lijpe_auto\basis\servo.c
 
