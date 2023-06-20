@@ -1,8 +1,7 @@
 /*
 <<<<<<< Updated upstream
-haiiiiiiii
-=======
-daan is brokko en heeft een kleine piemel aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+
+
 >>>>>>> Stashed changes
  */
  #ifndef F_CPU
@@ -22,7 +21,18 @@ volatile int random1 = 1;        //ints bij buzzer
 volatile int random2 = 1;
 volatile int random3 = 1;
 volatile int tellerbocht = 2;
-
+/*
+void knipperlicht()
+{
+// Lampjes laten knipperen
+        PORTB &= ~(1<<PB0);
+        PORTB |= (1<<PB1);
+        _delay_ms(500);
+        PORTB |= (1<<PB0);
+        PORTB &= ~(1<<PB1);
+        _delay_ms(500);
+}
+*/
 void git()
 {
 //Ik ben tof in Git

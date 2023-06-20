@@ -25,9 +25,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  10 .debug_frame  0000045c  00000000  00000000  000058bc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 11 .debug_str    00000687  00000000  00000000  00005d18  2**0
+ 11 .debug_str    000006e4  00000000  00000000  00005d18  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_line_str 000001a0  00000000  00000000  0000639f  2**0
+ 12 .debug_line_str 000001c0  00000000  00000000  000063fc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1156,10 +1156,10 @@ void servo1_set_percentage(signed char percentage)
      604:	08 95       	ret
 
 00000606 <git>:
-volatile int random2 = 1;
-volatile int random3 = 1;
-volatile int tellerbocht = 2;
-
+        PORTB &= ~(1<<PB1);
+        _delay_ms(500);
+}
+*/
 void git()
 {
      606:	cf 93       	push	r28
