@@ -22,6 +22,7 @@ volatile int random1 = 1;        //ints bij buzzer
 volatile int random2 = 1;
 volatile int random3 = 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 volatile int tellerbocht = 2;
 
 void git()
@@ -35,6 +36,14 @@ volatile int tellerbocht = 2;
 void git()
 {
 
+}
+>>>>>>> master
+=======
+volatile int tellerbocht = 2;
+
+void git()
+{
+//Ik ben tof in Git
 }
 >>>>>>> master
 
