@@ -36,6 +36,8 @@ void knipperlicht()
 void git()
 {
 //Ik ben tof in Git
+
+//Ik kan nu samen werken in Git!
 }
 
 void init()
