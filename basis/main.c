@@ -2,7 +2,7 @@
 <<<<<<< Updated upstream
 haiiiiiiii
 =======
-daan is brokko
+daan is brokko en heeft een kleine piemel
 >>>>>>> Stashed changes
  */
  #ifndef F_CPU
