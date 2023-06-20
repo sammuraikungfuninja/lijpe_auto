@@ -82,6 +82,10 @@
 
 1685539954 c:\users\daanb\documents\codeblock\lijpe_auto\basis\servo.c
 
+<<<<<<< HEAD
+1687249450 source:c:\users\user\documents\lijpe_auto\basis\fuse.c
+=======
 1686305771 source:c:\users\marti\onedrive\documenten\randogit\lijpe_auto\basis\fuse.c
+>>>>>>> master
 	<avr/io.h>
 

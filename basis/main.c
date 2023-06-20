@@ -2,7 +2,7 @@
 <<<<<<< Updated upstream
 haiiiiiiii
 =======
-daan is brokko en heeft een kleine piemel
+daan is brokko en heeft een kleine piemel aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
 >>>>>>> Stashed changes
  */
  #ifndef F_CPU
@@ -21,6 +21,7 @@ int state = 0;
 volatile int random1 = 1;        //ints bij buzzer
 volatile int random2 = 1;
 volatile int random3 = 1;
+<<<<<<< HEAD
 volatile int tellerbocht = 2;
 
 void git()
@@ -28,6 +29,14 @@ void git()
 //ik houd van worst
 //worst is matig
 }
+=======
+volatile int tellerbocht = 2;
+
+void git()
+{
+
+}
+>>>>>>> master
 
 void init()
 {
