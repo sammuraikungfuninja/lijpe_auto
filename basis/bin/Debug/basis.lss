@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 bin\Debug\basis.elf:     file format elf32-avr
 
@@ -11789,6 +11790,8 @@ int main(void)
     1fde:	e3 0d       	add	r30, r3
     1fe0:	ee 0d       	add	r30, r14
 =======
+=======
+>>>>>>> master
 
 bin\Debug\basis.elf:     file format elf32-avr
 
@@ -17692,6 +17695,7 @@ int main(void)
     1fee:	eb 0d       	add	r30, r11
     1ff0:	f6 0d       	add	r31, r6
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     1b64:	0e 94 a1 08 	call	0x1142	; 0x1142 <rem>
 
@@ -18593,6 +18597,8 @@ int main(void)
     1fde:	e3 0d       	add	r30, r3
     1fe0:	ee 0d       	add	r30, r14
 >>>>>>> master
+>>>>>>> master
+=======
 >>>>>>> master
 =======
 >>>>>>> master

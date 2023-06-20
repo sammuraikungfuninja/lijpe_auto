@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
@@ -964,6 +967,7 @@ tellerbocht                                       obj\Debug\main.o
 veiligheidsensor                                  obj\Debug\main.o
 vroem                                             obj\Debug\main.o
 =======
+<<<<<<< HEAD
 Archive member included to satisfy reference by file (symbol)
 
 c:/users/marti/downloads/compiler/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
@@ -1927,6 +1931,8 @@ veiligheidsensor                                  obj\Debug\main.o
 vroem                                             obj\Debug\main.o
 >>>>>>> master
 =======
+=======
+>>>>>>> master
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)

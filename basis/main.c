@@ -23,6 +23,7 @@ volatile int random2 = 1;
 volatile int random3 = 1;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 volatile int tellerbocht = 2;
 
 void git()
@@ -39,12 +40,17 @@ void git()
 }
 >>>>>>> master
 =======
+=======
+>>>>>>> master
 volatile int tellerbocht = 2;
 
 void git()
 {
 //Ik ben tof in Git
 }
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
 void init()
