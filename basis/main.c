@@ -191,9 +191,9 @@ void grotebocht()
 {
     if (random3 == 1)
     {
-    servo1_set_percentage(-20);
+    servo1_set_percentage(-40);
     DEBOUNCE;
-    if ((PIND & (1<<PD3))==0)                    //links checken, rechts corigeren
+    if ((PINF & (1<<PF1))==0)                    //links checken, rechts corigeren
     {
         state = 1;
        tellerbocht = 0;
@@ -203,9 +203,9 @@ void grotebocht()
     }
     if (random3 == 2)
     {
-    servo1_set_percentage(20);
+    servo1_set_percentage(40);
     DEBOUNCE;
-    if ((PINF & (1<<PF1))==0)                    //links checken, rechts corigeren
+    if ((PIND & (1<<PD3))==0)                    //links checken, rechts corigeren
     {
         state = 1;
        tellerbocht = 0;

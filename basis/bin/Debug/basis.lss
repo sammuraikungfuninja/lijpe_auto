@@ -27,7 +27,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  11 .debug_str    00000687  00000000  00000000  00005d18  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_line_str 00000196  00000000  00000000  0000639f  2**0
+ 12 .debug_line_str 000001a0  00000000  00000000  0000639f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -4343,8 +4343,8 @@ void grotebocht()
 
 000017e0 <.Loc.413>:
     {
-    servo1_set_percentage(-20);
-    17e0:	8c ee       	ldi	r24, 0xEC	; 236
+    servo1_set_percentage(-40);
+    17e0:	88 ed       	ldi	r24, 0xD8	; 216
     17e2:	0e 94 8f 02 	call	0x51e	; 0x51e <servo1_set_percentage>
     17e6:	80 e0       	ldi	r24, 0x00	; 0
     17e8:	90 e0       	ldi	r25, 0x00	; 0
@@ -4534,8 +4534,8 @@ void grotebocht()
 
 00001904 <.L169>:
     DEBOUNCE;
-    if ((PIND & (1<<PD3))==0)                    //links checken, rechts corigeren
-    1904:	89 e2       	ldi	r24, 0x29	; 41
+    if ((PINF & (1<<PF1))==0)                    //links checken, rechts corigeren
+    1904:	8f e2       	ldi	r24, 0x2F	; 47
     1906:	90 e0       	ldi	r25, 0x00	; 0
     1908:	dc 01       	movw	r26, r24
     190a:	8c 91       	ld	r24, X
@@ -4543,7 +4543,7 @@ void grotebocht()
 0000190c <.Loc.430>:
     190c:	88 2f       	mov	r24, r24
     190e:	90 e0       	ldi	r25, 0x00	; 0
-    1910:	88 70       	andi	r24, 0x08	; 8
+    1910:	82 70       	andi	r24, 0x02	; 2
     1912:	99 27       	eor	r25, r25
 
 00001914 <.Loc.431>:
@@ -4597,8 +4597,8 @@ void grotebocht()
 
 00001952 <.Loc.439>:
     {
-    servo1_set_percentage(20);
-    1952:	84 e1       	ldi	r24, 0x14	; 20
+    servo1_set_percentage(40);
+    1952:	88 e2       	ldi	r24, 0x28	; 40
     1954:	0e 94 8f 02 	call	0x51e	; 0x51e <servo1_set_percentage>
     1958:	80 e0       	ldi	r24, 0x00	; 0
     195a:	90 e0       	ldi	r25, 0x00	; 0
@@ -4799,8 +4799,8 @@ void grotebocht()
 
 00001a84 <.L178>:
     DEBOUNCE;
-    if ((PINF & (1<<PF1))==0)                    //links checken, rechts corigeren
-    1a84:	8f e2       	ldi	r24, 0x2F	; 47
+    if ((PIND & (1<<PD3))==0)                    //links checken, rechts corigeren
+    1a84:	89 e2       	ldi	r24, 0x29	; 41
     1a86:	90 e0       	ldi	r25, 0x00	; 0
     1a88:	dc 01       	movw	r26, r24
     1a8a:	8c 91       	ld	r24, X
@@ -4808,7 +4808,7 @@ void grotebocht()
 00001a8c <.Loc.456>:
     1a8c:	88 2f       	mov	r24, r24
     1a8e:	90 e0       	ldi	r25, 0x00	; 0
-    1a90:	82 70       	andi	r24, 0x02	; 2
+    1a90:	88 70       	andi	r24, 0x08	; 8
     1a92:	99 27       	eor	r25, r25
 
 00001a94 <.Loc.457>:
