@@ -22,6 +22,12 @@ volatile int random1 = 1;        //ints bij buzzer
 volatile int random2 = 1;
 volatile int random3 = 1;
 volatile int tellerbocht = 2;
+
+void git()
+{
+
+}
+
 void init()
 {
     DDRD &= ~(1<<PD3); //D18, ir rechts voor
