@@ -26,6 +26,7 @@ volatile int tellerbocht = 2;
 void git()
 {
 //ik houd van worst
+//worst is matig
 }
 
 void init()
