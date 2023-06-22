@@ -1169,6 +1169,7 @@ void git()
 
 0000060e <.Loc.119>:
 //Ik ben tof in Git
+//Ik kan nu samen werken in Git!
 }
      60e:	00 00       	nop
      610:	df 91       	pop	r29
