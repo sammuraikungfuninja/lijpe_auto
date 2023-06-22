@@ -1,12 +1,5 @@
 /*
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-haiiiiiiii
-stef was hier.
-=======
-daan is brokko en heeft een kleine piemel aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
-=======
-
+ Dit is versiebeheer Daan Boekestijn 22 juni
 
 >>>>>>> master
 >>>>>>> Stashed changes
@@ -27,6 +20,27 @@ int state = 0;
 volatile int random1 = 1;        //ints bij buzzer
 volatile int random2 = 1;
 volatile int random3 = 1;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+volatile int tellerbocht = 2;
+
+void git()
+{
+//ik houd van worst
+//worst is matig
+}
+=======
+volatile int tellerbocht = 2;
+
+void git()
+{
+
+}
+>>>>>>> master
+=======
+=======
+>>>>>>> master
 volatile int tellerbocht = 2;
 /*
 void knipperlicht()
@@ -46,6 +60,10 @@ void git()
 //Ik kan nu samen werken in Git!
 
 }
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> master
 
 void init()
 {
