@@ -1,5 +1,6 @@
 /*
- Dit is versiebeheer Martijn Broekhuizen 22 juni
+ Dit is versiebeheer Stef van Velden 22 juni
+
 >>>>>>> master
 >>>>>>> Stashed changes
  */
